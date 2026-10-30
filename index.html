@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10091c">
+<title>LUCKYLY</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#0c0813;color:white;
+ font-family:Arial,sans-serif;padding-bottom:75px
+}
+header{
+ padding:18px;display:flex;justify-content:space-between;
+ align-items:center;border-bottom:1px solid #30203e;
+ position:sticky;top:0;background:#10091c;z-index:5
+}
+.logo{font-size:27px;font-weight:bold;color:#c77aff}
+.logo span{color:white}
+button{cursor:pointer}
+header button,.nav button{
+ background:none;border:0;color:white;font-size:20px
+}
+h3{margin:20px 15px 12px}
+.stories{display:flex;overflow-x:auto;gap:15px;padding:10px 15px}
+.story{text-align:center;min-width:65px;font-size:12px}
+.circle{
+ width:58px;height:58px;border-radius:50%;
+ border:3px solid #bb55ff;padding:3px;
+ display:grid;place-items:center;font-size:23px;
+ background:#29143c;margin:auto auto 6px
+}
+.post{
+ margin:15px;background:#191021;
+ border:1px solid #38234b;border-radius:15px;overflow:hidden
+}
+.user{display:flex;align-items:center;gap:10px;padding:12px}
+.avatar{background:#7427ad;border-radius:50%;padding:10px}
+.photo{
+ height:260px;display:grid;place-items:center;
+ font-size:65px;
+ background:linear-gradient(145deg,#34104c,#111827,#6c2990)
+}
+.actions{display:flex;gap:18px;padding:12px;font-size:21px}
+.actions button{background:none;border:0;color:white;font-size:22px}
+.caption{padding:0 13px 15px;font-size:14px}
+.reel{
+ margin:15px;border-radius:15px;height:220px;
+ background:linear-gradient(140deg,#31134a,#130d21);
+ display:grid;place-items:center;font-size:35px
+}
+.nav{
+ position:fixed;bottom:0;left:0;width:100%;
+ display:flex;justify-content:space-around;
+ background:#130b1c;border-top:1px solid #553174;
+ padding:13px 5px
+}
+.nav button{font-size:22px}
+.nav button:focus,.nav button.active{color:#ce80ff}
+#notice{color:#d9a1ff;text-align:center;padding:12px}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">LUCKY<span>LY</span> ♛</div>
+ <div>
+  <button onclick="alert('Search coming soon!')">⌕</button>
+  <button onclick="alert('Notifications coming soon!')">♧</button>
+ </div>
+</header>
+
+<h3>Stories • स्टोरीज़</h3>
+<div class="stories">
+ <div class="story"><div class="circle">＋</div>Your Story</div>
+ <div class="story"><div class="circle">👨</div>Lucky</div>
+ <div class="story"><div class="circle">🌄</div>Travel</div>
+ <div class="story"><div class="circle">🎧</div>Music</div>
+ <div class="story"><div class="circle">✨</div>Friends</div>
+</div>
+
+<h3>Home • होम</h3>
+<div class="post">
+ <div class="user"><div class="avatar">👑</div>
+  <div><b>LUCKYLY</b><br><small>Official • Demo Post</small></div>
+ </div>
+ <div class="photo">🌆</div>
+ <div class="actions">
+  <button onclick="like(this)">♡</button>
+  <button onclick="alert('Comments coming soon!')">♧</button>
+  <button onclick="alert('Share coming soon!')">➤</button>
+ </div>
+ <div class="caption"><b>LUCKYLY</b> Welcome to your new world! 💜
+ <br>Share • Connect • Create</div>
+</div>
+
+<h3>Reels • रील्स</h3>
+<div class="reel" onclick="alert('Reels feature coming soon!')">
+ ▶️ &nbsp; Reels
+</div>
+<div id="notice">Your World. Your People. 💜</div>
+
+<div class="nav">
+ <button class="active" onclick="tab(this,'Home')">⌂</button>
+ <button onclick="tab(this,'Search')">⌕</button>
+ <button onclick="tab(this,'Create')">＋</button>
+ <button onclick="tab(this,'Reels')">▷</button>
+ <button onclick="tab(this,'Profile')">♙</button>
+</div>
+
+<script>
+function like(btn){
+ btn.innerText=btn.innerText==='♡'?'♥':'♡';
+ btn.style.color=btn.innerText==='♥'?'#df55ff':'white';
+}
+function tab(btn,name){
+ document.querySelectorAll('.nav button')
+ .forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+ document.getElementById('notice').innerText=
+ name+' • '+(name==='Home'?'Welcome to LUCKYLY 💜':'Feature coming soon!');
+}
+</script>
+</body>
+</html>
